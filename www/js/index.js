@@ -32,6 +32,8 @@ var app = {
       },
 
       onBatteryStatus: function(status) {
+       $("#level").html(status.level);
+       $("#isPlugged").html(status.isPlugged);
        console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
 },
     // Update DOM on a Received Event
