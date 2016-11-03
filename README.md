@@ -18,8 +18,13 @@ $ cordova platform add android
 
 # Installing Plugins
 1. Add plugin
+
 ```
 $ cordova plugin add cordova-plugin-battery-status
+```
+
+```
+$ cordova plugin add cordova-plugin-dialogs
 ```
 
 # Create and Manage Virtual Devices

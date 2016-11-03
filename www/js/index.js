@@ -22,21 +22,31 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
         },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
+            // deviceready Event Handler
+            //
+            // Bind any cordova events here. Common events are:
+            // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         window.addEventListener("batterystatus", this.onBatteryStatus, false);
+        window.addEventListener("batterylow", this.onBatteryLow, false);
       },
 
-      onBatteryStatus: function(status) {
-       $("#level").html(status.level);
-       $("#isPlugged").html(status.isPlugged);
+    onBatteryStatus: function(status) {
+
        console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
-},
-    // Update DOM on a Received Event
+       navigator.notification.alert(
+           ''+status.level+'%',                       // message
+           function() {
+             $("#level").html(status.level+"%");       // callback
+             $("#isPlugged").html(status.isPlugged);
+           },
+           'Battery Level',                           // title
+           'OK'                                        // buttonName
+       );
+
+      },
+          // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
@@ -46,12 +56,18 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+        console.log(navigator.notification);
+      },
     // receivedEvent: function onBatteryStatus(status) {
     // console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
 
 
 
+
+    onBatteryLow:function (status) {
+        alert("Battery Level Low " + status.level + "%");
+        console.log("Battery Level Low : " + status.level + "%");
+     }
 
 
 };
