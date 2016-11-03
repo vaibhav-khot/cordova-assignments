@@ -36,16 +36,17 @@ var app = {
 
        console.log("Level: " + status.level + " isPlugged: " + status.isPlugged);
        navigator.notification.alert(
-           ''+status.level+'%',                       // message
-           function() {
-             $("#level").html(status.level+"%");       // callback
-             $("#isPlugged").html(status.isPlugged);
-           },
-           'Battery Level',                           // title
-           'OK'                                        // buttonName
+           ''+status.level+'%',                             // message
+              function() {
+                  $("#level").html(status.level+"%");       // callback
+                  $("#isPlugged").html(status.isPlugged);
+                  navigator.notification.beep(1);
+                },
+           'Battery Level',                                   // title
+           'OK'                                                // buttonName
        );
+     },
 
-      },
           // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
