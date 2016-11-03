@@ -4,13 +4,11 @@
 ```
 $ npm install -g cordova
 ```
-2. Create a project
+2. Installing Jquery
 ```
-$ cordova create hello
+$ npm install jquery
 ```
-```
-$ cd hello
-```
+
 
 # Installing Platforms
 1.  Add Platform

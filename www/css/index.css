@@ -92,6 +92,16 @@ h1 {
     display:block;
 }
 
+.isPlugged1 {
+    background-color:#4B946A;
+    color:red;
+}
+
+.level1 {
+    background-color:#4B946A;
+    color:red;
+}
+
 .event.received {
     background-color:#4B946A;
     display:none;
@@ -102,13 +112,13 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
